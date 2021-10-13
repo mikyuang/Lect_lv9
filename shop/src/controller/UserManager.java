@@ -1,17 +1,31 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import models.User;
 
 public class UserManager {
 
+	
 public static UserManager instance = new UserManager();
+	Scanner sc = new Scanner(System.in);
+	Random rn = new Random();
 	
 	
 	private ArrayList<User> users = new ArrayList<>();
-	Scanner sc = new Scanner(System.in);
+	
+	public static int log=-1;
+	
+	private UserManager(){
+		init();
+	}
+	public void init() {
+		users.add(new User("qwer","1111"));
+		users.add(new User("abcd", "2222"));
+		users.add(new User("apple", "3333"));
+	}
 	
 	public void joinUser() {
 		System.out.println("id : ");
@@ -34,19 +48,41 @@ public static UserManager instance = new UserManager();
 		}
 	}
 	
-	public int login() {
+	private int checkLog(String id, String pw) {
+		int log =0;
+		for(User user : users) {
+			if(user.getId().equals(id) && user.getPw().equals(pw))
+				return log;
+			else
+				log++;
+		}
+		return -1;
+		
+	}
+	public boolean login() {
+		int log =0;
 		System.out.println("id : ");
 		String id = sc.next();
 		System.out.println("pw : ");
 		String pw = sc.next();
 		
-		for(int i=0; i<this.users.size(); i++) {
-			if(users.get(i).getId().equals(id) && users.get(i).getPw().equals(pw)) {
-				return i;
+		
+		for(int i=0; i<users.size(); i++) {
+			if(users.get(i).getId().equals(id) && users.get(i).getPw().equals(pw)){
+				log = i;
+				break;
 			}
 		}
-		return -1;
+		if(log == -1) {
+			System.out.println("존재하지 않는 id입니다.");
+		}else {
+			System.out.println(users.get(log)+"님 로그인 성공.");
+			return true;
+		}
+		return false;
+		
 	}
+	
 	
 	public User getUser(int log) {
 		return this.users.get(log);
