@@ -35,9 +35,10 @@ public class Shop {//로그인 화면
 			break;
 			
 		}
-		
 		else if(sel == 100) {
+			if(um.login()) {
 			ManagerMu();
+			}
 		}
 		}
 	}
@@ -64,7 +65,11 @@ public class Shop {//로그인 화면
 			boolean run=true;
 			while(run) {
 			System.out.println("1.카데고리 선택");
+			int csel = sc.nextInt();
+			
+			
 			System.out.println("2.아이템 선택");
+			int isel = sc.nextInt();
 			
 			}
 		}
@@ -75,9 +80,15 @@ public class Shop {//로그인 화면
 			System.out.print("\n1.나의장바구니\n2.삭제\n3.구입\n0.뒤로가기\n");
 			int sel = sc.nextInt();
 			
-			if(sel ==1) {}
-			else if(sel ==2) {}
-			else if(sel ==3) {}
+			if(sel ==1) {
+				im.myCart();
+			}
+			else if(sel ==2) {
+				im.delCart();
+			}
+			else if(sel ==3) {
+				im.buyCart();
+			}
 			else if(sel ==0) {}
 			
 			}
