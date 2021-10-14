@@ -23,8 +23,7 @@ public static UserManager instance = new UserManager();
 	private static String PASSWORD ="0000";
 	
 	
-	
-	private UserManager(){
+	public UserManager(){
 		init();
 	}
 	public void init() {

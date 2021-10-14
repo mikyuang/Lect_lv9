@@ -19,7 +19,7 @@ public class Shop {//로그인 화면
 		boolean isRun = true;
 		while(isRun) {
 			System.out.print("= = = S H O P = = =\t");
-			System.out.println("\n1.로그인\n2.회원가입\n3.종료"+"\n100.관리자\n0.뒤로가기");
+			System.out.println("\n1.로그인\n2.회원가입\n3.종료"+"\n100.관리자");
 			int sel =sc.nextInt();
 		
 		if(sel == 1) {
@@ -32,15 +32,14 @@ public class Shop {//로그인 화면
 		else if(sel ==3) {
 			System.out.println("프로그램을 종료합니다.");
 			break;
-			
 		}
-		else if(sel == 100) {
+		if(sel == 100) {
 			if(um.login()) {
 			ManagerMu();
 			}
 		}
-		}
 	}
+}
 		public void selectMenu() {
 			boolean run=true;
 			while(run) {
@@ -71,6 +70,8 @@ public class Shop {//로그인 화면
 			im.printItemList(caId);
 			int itId = sc.nextInt();
 			im.addCart(um.getUsers(um.log), caId, itId);
+			
+			
 			}
 		}
 		
@@ -90,7 +91,7 @@ public class Shop {//로그인 화면
 				
 			}
 			else if(sel ==0) {}
-			break;
+			run = false;
 			}
 		}
 		
