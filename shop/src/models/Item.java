@@ -9,12 +9,13 @@ public class Item {
 	private String category;
 	private int count;
 	
-	public Item(String name, int price, String cate, int count) {
+	public Item(String name, int price, String cate) {
 		this.name=name;
 		this.price=price;
 		this.category=cate;
-		this.count=count;
+		
 	}
+	
 	public int getCount() {
 		return count;
 	}

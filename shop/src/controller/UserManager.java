@@ -18,13 +18,19 @@ public static UserManager instance = new UserManager();
 	
 	public static int log=-1;
 	
+	
+	private static String ID = "admin";
+	private static String PASSWORD ="0000";
+	
+	
+	
 	private UserManager(){
 		init();
 	}
 	public void init() {
-		users.add(new User("qwer","1111"));
-		users.add(new User("abcd", "2222"));
-		users.add(new User("apple", "3333"));
+		getUsers().add(new User("qwer","1111"));
+		getUsers().add(new User("abcd", "2222"));
+		getUsers().add(new User("apple", "3333"));
 	}
 	
 	public void joinUser() {
@@ -35,22 +41,22 @@ public static UserManager instance = new UserManager();
 		
 		boolean check = false;
 		
-		for(User user : this.users) {
+		for(User user : this.getUsers()) {
 			if(id.equals(user.getId()))
 				check = true;
 		}
 		
 		if(!check) {
 			User newUser = new User(id, pw);
-			this.users.add(newUser);
+			this.getUsers().add(newUser);
 		}else {
 			System.out.println("중복된 아이디 입니다.");
 		}
 	}
 	
-	private int checkLog(String id, String pw) {
+	public int checkLog(String id, String pw) {
 		int log =0;
-		for(User user : users) {
+		for(User user : getUsers()) {
 			if(user.getId().equals(id) && user.getPw().equals(pw))
 				return log;
 			else
@@ -67,8 +73,8 @@ public static UserManager instance = new UserManager();
 		String pw = sc.next();
 		
 		
-		for(int i=0; i<users.size(); i++) {
-			if(users.get(i).getId().equals(id) && users.get(i).getPw().equals(pw)){
+		for(int i=0; i<getUsers().size(); i++) {
+			if(getUsers().get(i).getId().equals(id) && getUsers().get(i).getPw().equals(pw)){
 				log = i;
 				break;
 			}
@@ -76,17 +82,32 @@ public static UserManager instance = new UserManager();
 		if(log == -1) {
 			System.out.println("존재하지 않는 id입니다.");
 		}else {
-			System.out.println(users.get(log)+"님 로그인 성공.");
+			System.out.println(getUsers().get(log)+"님 로그인 성공.");
 			return true;
 		}
 		return false;
 		
 	}
 	
-	
-	public User getUser(int log) {
-		return this.users.get(log);
+	public void printUser() {
+		for(int i=0; i<this.getUsers().size(); i++) {
+			System.out.println(i+" )");
+			System.out.println(this.getUsers().get(i));
+		}
+		
 	}
+	public ArrayList<User> getUsers() {
+		return users;
+	}
+	public void setUsers(ArrayList<User> users) {
+		this.users = users;
+	}
+	public String getUsers(int log2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 	
 
 	
