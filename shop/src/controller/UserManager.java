@@ -67,27 +67,26 @@ public static UserManager instance = new UserManager();
 		
 	}
 	public boolean login() {
-		int log =0;
 		System.out.println("id : ");
 		String id = sc.next();
 		System.out.println("pw : ");
 		String pw = sc.next();
 		
 		
-		for(int i=0; i<users.size(); i++) {
-			if(users.get(i).getId().equals(id) && users.get(i).getPw().equals(pw)){
-				log = i;
-				break;
-			}
+		int check = checkLog(id, pw);
+		if(check == 1) {
+		for(User user : this.users) {
+			if(id.equals(user.getId()) && pw.equals(pw))
+				System.out.println(users.get(log).getId()+"님 로그인 성공.");
 		}
-		if(log == -1) {
-			System.out.println("존재하지 않는 id입니다.");
 		}else {
-			System.out.println(this.users.get(log).getId()+"님 로그인 성공.");
-			return true;
+			System.out.println("잘못된 정보 입니다.");
+			
 		}
 		return false;
-	}
+		}
+	
+	
 	
 	public boolean adminLog() {
 		int log =0;
