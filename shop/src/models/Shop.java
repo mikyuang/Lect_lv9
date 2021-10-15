@@ -34,7 +34,7 @@ public class Shop {//로그인 화면
 			break;
 		}
 		if(sel == 100) {
-			if(um.login()) {
+			if(um.adminLog()) {
 			ManagerMu();
 			}
 		}
@@ -64,12 +64,15 @@ public class Shop {//로그인 화면
 			boolean run=true;
 			while(run) {
 			im.printCategory();
+			
 			System.out.println("카데고리 선택");
 			int caId = sc.nextInt();
+			
 			System.out.println("아이템 선택 : ");
 			im.printItemList(caId);
 			int itId = sc.nextInt();
-			im.addCart(um.getUsers(um.log), caId, itId);
+			
+			im.addCart(um.log), caId, itId);
 			
 			
 			}
@@ -82,7 +85,7 @@ public class Shop {//로그인 화면
 			int sel = sc.nextInt();
 			
 			if(sel ==1) {
-				im.printJang(um.getUsers(um.log));
+				im.printJang(um.log);
 			}
 			else if(sel ==2) {
 				
@@ -99,9 +102,8 @@ public class Shop {//로그인 화면
 			
 			boolean run = true;
 			while(run) {
-			if(um.log == 0) {
-				System.out.println("= = = 관 리 자 = = =");
-				System.out.print("\n1.아이템 관리\n2.카데고리관리\n3.장바구니관리\n4.유저관리\n0.뒤로가기");
+			System.out.println("= = = 관 리 자 = = =");
+			System.out.print("1.아이템 관리\n2.카데고리관리\n3.장바구니관리\n4.유저관리\n0.뒤로가기");
 			int sel = sc.nextInt();
 			
 			if(sel ==1) {
@@ -123,7 +125,7 @@ public class Shop {//로그인 화면
 				}
 			}
 		}
-	}
+	
 		private void categoryMenu() {
 			boolean run = true;
 			while(run) {

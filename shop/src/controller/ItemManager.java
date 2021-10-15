@@ -11,10 +11,10 @@ public class ItemManager {
 
 	public static ItemManager instance = new ItemManager();
 	
-	private ArrayList<Item> itemList = new ArrayList<Item>();
-	private ArrayList<Cart> jangList = new ArrayList<Cart>();
+	 ArrayList<Item> itemList = new ArrayList<Item>();
+	 ArrayList<Cart> jangList = new ArrayList<Cart>();
 	
-	private ArrayList<String> category = new ArrayList<String>();
+	 ArrayList<String> category = new ArrayList<String>();
 	
 	Scanner sc = new Scanner(System.in);
 
@@ -83,7 +83,8 @@ public class ItemManager {
 		int price = sc.nextInt();
 		printCategory();
 		System.out.println("추가) 카테고리를 입력하세요 : ");
-		Item temp = new Item(name, price, category.get(price));
+		int sel= sc.nextInt(); 
+		Item temp = new Item(name, price, category.get(sel));
 		itemList.add(temp);
 	}
 	public void addCategory() {
