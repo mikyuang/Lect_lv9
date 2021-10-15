@@ -23,20 +23,21 @@ public class Shop {//로그인 화면
 			int sel =sc.nextInt();
 		
 		if(sel == 1) {
-			if(um.login()) {
+			if(um.logIn()) {
 				selectMenu();
 			}
+			
 		}else if(sel ==2) {
-			um.joinUser();
+			um.join();
 		}
 		else if(sel ==3) {
 			System.out.println("프로그램을 종료합니다.");
 			break;
 		}
 		if(sel == 100) {
-			if(um.adminLog()) {
+			
 			ManagerMu();
-			}
+			
 		}
 	}
 }
@@ -52,7 +53,7 @@ public class Shop {//로그인 화면
 				else if (sel ==2) {
 					cartMenu();
 				}else if(sel ==3) {
-					um.log=-1;
+					um.logOut();
 				}
 				else if (sel ==0) {break;}
 				
@@ -72,7 +73,7 @@ public class Shop {//로그인 화면
 			im.printItemList(caId);
 			int itId = sc.nextInt();
 			
-			im.addCart(um.log), caId, itId);
+			im.addCart(um.userList.get(um.userLog), caId, itId);
 			
 			
 			}

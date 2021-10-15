@@ -16,6 +16,10 @@ public class User {
 		this.pw=pw;
 	}
 	
+	public User(String name, int nextInt) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getId() {
 		return id;
 	}
