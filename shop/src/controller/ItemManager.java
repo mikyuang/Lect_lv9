@@ -99,11 +99,11 @@ public class ItemManager {
 		
 		if(sel ==1) {
 			for(int i=0; i<this.jangList.size(); i++) {
-				
+				System.out.println(itemList.get(i).getName()+"-"+this.itemList.get(i).getPrice());
+				System.out.println("총 금액 : ");
 			}
 			
-			System.out.println("금액 입력 : ");
-			System.out.println();
+			
 			
 		}else if(sel ==2) {
 			
