@@ -6,19 +6,15 @@ public class Item {
 	
 	private String name;
 	private int price;
-	private String category;
+	private String cateGory;
 	private int cnt;
 	
 	public Item(String name, int price, String cate) {
 		this.name=name;
 		this.price=price;
-		this.category=cate;
+		this.cateGory=cate;
 	}
-	public Item(String name, int price, int cnt) {
-		this.name=name;
-		this.price=price;
-		this.cnt=cnt;
-	}
+	
 	
 	public String getName() {
 		return name;
@@ -36,15 +32,16 @@ public class Item {
 		this.price = price;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getCateGory() {
+		return cateGory;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	
+	public void setCateGory(String cateGory) {
+		this.cateGory = cateGory;
 	}
 
 public void print() {
-	System.out.println(this.name + " : "+ this.price + " , "+ this.category);
+	System.out.println(this.name + " : "+ this.price + " , "+ this.cateGory);
 }
 
 }

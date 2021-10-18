@@ -24,7 +24,7 @@ public class User {
 	
 
 	public void print() {
-		System.out.println("["+id+"]"+"금액 : "+ money);
+		System.out.println("["+id+"]"+" 보유 금액 : "+ money);
 	}
 
 

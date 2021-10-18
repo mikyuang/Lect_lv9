@@ -7,8 +7,10 @@ import models.Cart;
 import models.Item;
 import models.User;
 
-public class ItemManager {
 
+public class ItemManager {
+	
+	UserManager um = new UserManager();
 	public static ItemManager instance = new ItemManager();
 	
 	 Vector<Item> itemList = new Vector<Item>();
@@ -69,7 +71,7 @@ public class ItemManager {
 	public void printItemList(int caId) {
 		int n=0;
 		for(int i=0; i<itemList.size(); i++) {
-			if(category.get(caId).equals(itemList.get(i).getCategory())) {
+			if(category.get(caId).equals(itemList.get(i).getCateGory())) {
 				System.out.println(n + ")");
 				itemList.get(i).print();
 				n+=1;
@@ -77,13 +79,28 @@ public class ItemManager {
 		}
 	}
 	
+	public void delCate() {
+		for(int i=0; i<category.size(); i++) {
+			System.out.println(i+")"+category.get(i));
+		}
+		System.out.println("삭제할 카데고리를 입력하세요 : ");
+		String name = sc.next();
+		
+		Item delCa = null;
+		for(int i=0; i<category.size(); i++) {
+		//	if(name.equals();
+		}
+		this.category.remove(delCa);
+		}
+	
+	
 	public void delItem() {
 		
 		System.out.println("삭제할 아이템 이름을 입력하세요 : ");
 		String name = sc.next();
 		
 		Cart delJang = null;
-	for(Cart jL: this.jangList) {
+		for(Cart jL: this.jangList) {
 			if(name.equals(jL.getItemName())) {
 				delJang = jL;
 			}
@@ -97,22 +114,32 @@ public class ItemManager {
 		System.out.print("\n장바구니 아이템을 모두 구입하시겠습니까?\n1.yes\n2.no ");
 		int sel = sc.nextInt();
 		
+		int total =0;
 		if(sel ==1) {
+		
 			for(int i=0; i<this.jangList.size(); i++) {
-				System.out.println(itemList.get(i).getName()+"-"+this.itemList.get(i).getPrice());
-				System.out.println("총 금액 : ");
+				if(this.jangList.get(i).getUserId() == um.getUserList().get(i).getId());{
+					if(this.jangList.get(i).getItemName() == this.itemList.get(i).getName());{
+						total += this.itemList.get(i).getPrice();
+					}
+				}
+			}
+			System.out.println("총 금액 : "+total+" 원");
+			System.out.println("현금 입력 : ");
+			int money = sc.nextInt();
+			
+			if(money <= 0 || money < total) {
+				System.out.println("금액이 부족합니다.");
+				return;
+			}else {
+				int cash = money - total;
+				System.out.println("구매 감사합니다.");
+				System.out.println("잔돈 : "+cash+" 원 입니다.");
 			}
 			
-			
-			
 		}else if(sel ==2) {
-			
+			return;
 		}
-		
-	
-		
-		
-		
 	}
 	
 	
@@ -142,7 +169,7 @@ public class ItemManager {
 		Cart temp = new Cart();
 		temp.setUserId(usId);
 		for(int i=0; i<itemList.size(); i++) {
-			if(category.get(caId).equals(itemList.get(i).getCategory())) {
+			if(category.get(caId).equals(itemList.get(i).getCateGory())) {
 				if(itemId == n) {
 					temp.setItemName(itemList.get(i).getName());
 				}
@@ -150,6 +177,21 @@ public class ItemManager {
 			}
 		}
 		jangList.add(temp);
+	}
+	
+	
+	public void printAllCart() {
+		for(int i=0; i<jangList.size(); i++) {
+			System.out.println("["+i+"]");
+			jangList.get(i).print();
+		}
+	}
+	
+	public void addAllCart(){
+		
+	}
+	public void delAllCart() {
+		
 	}
 		
 }

@@ -96,7 +96,7 @@ public class Shop {//로그인 화면
 			} else if (sel == 2) {
 				categoryMenu();
 			} else if (sel == 3) {
-
+				CartMe();
 			} else if (sel == 4) {
 				userMenu();
 			} else if (sel == 0) {
@@ -105,6 +105,25 @@ public class Shop {//로그인 화면
 		}
 	}
 
+	void CartMe() {
+		boolean run = true;
+		while(run) {
+			System.out.println("[1.전체 장바구니][2.장바구니추가][3.장바구니 삭제][0.뒤로가기]");
+			int sel = scan.nextInt();
+			
+			if(sel ==1) {
+				im.printAllCart();
+			}else if( sel ==2) {
+				im.addAllCart();
+			}else if( sel ==3) {
+				im.delAllCart();
+			}else if( sel ==0) {
+				run=false;
+			}
+			
+		}
+		
+	}
 	void categoryMenu() {
 		boolean run = true;
 		while (run) {
@@ -113,7 +132,9 @@ public class Shop {//로그인 화면
 			if (sel == 1) {
 				im.printCategory();
 			} else if (sel == 2) {
-
+				im.addCategory();
+			}else if(sel ==3) {
+				im.delCate();
 			} else if (sel == 0) {
 				run = false;
 			}
@@ -129,6 +150,8 @@ public class Shop {//로그인 화면
 				im.printItemList();
 			} else if (sel == 2) {
 				im.addItem();
+			}else if(sel ==3) {
+				im.delItem();
 			} else if (sel == 0) {
 				run = false;
 			}
@@ -142,13 +165,15 @@ public class Shop {//로그인 화면
 			int sel = scan.nextInt();
 			if (sel == 1) {
 				um.printUser();
-			} else if (sel == 0) {
+			}else if(sel ==2) {
+				um.join();
+			}else if(sel ==3) {
+				um.deluser();
+		}else if (sel == 0) {
 				run = false;
 			}
 		}
 	}
-	
-	
 }
 	
 	
