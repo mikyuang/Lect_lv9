@@ -58,9 +58,9 @@ public class Shop {//로그인 화면
 				im.printJang(um.getUserList().get(um.userLog));
 			
 			}else if(sel ==2) {
-			//	im.delItem(um.getUserList().get(um.userLog));
+				im.delItem();
 			}else if(sel ==3) {
-			//	im.buyItem(um.getUserList().get(um.userLog));
+				//im.buyItem(um.getUserList().get(um.userLog));
 			} else if (sel == 0) {
 				break;
 			}
@@ -69,6 +69,7 @@ public class Shop {//로그인 화면
 
 	void shopMenu() {
 		boolean run = true;
+		
 		while (run) {
 			im.printCategory();
 			

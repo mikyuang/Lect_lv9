@@ -77,8 +77,19 @@ public class ItemManager {
 		}
 	}
 	
-	public void delItem(int index) {
+	public void delItem() {
 		
+		System.out.println("삭제할 아이템 이름을 입력하세요 : ");
+		String name = sc.next();
+		
+		Cart delJang = null;
+	for(Cart jL: this.jangList) {
+			if(name.equals(jL.getItemName())) {
+				delJang = jL;
+			}
+	}
+	this.jangList.remove(delJang);
+	System.out.println("삭제가 완료되었습니다.");
 		
 	}
 	
@@ -122,5 +133,5 @@ public class ItemManager {
 		}
 		jangList.add(temp);
 	}
-	
+		
 }
