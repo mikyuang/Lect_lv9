@@ -7,11 +7,17 @@ public class Item {
 	private String name;
 	private int price;
 	private String category;
+	private int cnt;
 	
 	public Item(String name, int price, String cate) {
 		this.name=name;
 		this.price=price;
 		this.category=cate;
+	}
+	public Item(String name, int price, int cnt) {
+		this.name=name;
+		this.price=price;
+		this.cnt=cnt;
 	}
 	
 	public String getName() {

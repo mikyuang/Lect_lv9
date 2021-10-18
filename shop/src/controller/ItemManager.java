@@ -94,9 +94,27 @@ public class ItemManager {
 	}
 	
 	public void buyItem() {
+		System.out.print("\n장바구니 아이템을 모두 구입하시겠습니까?\n1.yes\n2.no ");
+		int sel = sc.nextInt();
+		
+		if(sel ==1) {
+			for(int i=0; i<this.jangList.size(); i++) {
+				
+			}
+			
+			System.out.println("금액 입력 : ");
+			System.out.println();
+			
+		}else if(sel ==2) {
+			
+		}
+		
+	
+		
 		
 		
 	}
+	
 	
 	public void addItem() {
 		System.out.println("추가) 아이템 이름을 입력하세요 : ");

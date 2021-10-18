@@ -60,7 +60,7 @@ public class Shop {//로그인 화면
 			}else if(sel ==2) {
 				im.delItem();
 			}else if(sel ==3) {
-				//im.buyItem(um.getUserList().get(um.userLog));
+				im.buyItem();
 			} else if (sel == 0) {
 				break;
 			}
