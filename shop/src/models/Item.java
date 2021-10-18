@@ -7,21 +7,13 @@ public class Item {
 	private String name;
 	private int price;
 	private String category;
-	private int count;
 	
 	public Item(String name, int price, String cate) {
 		this.name=name;
 		this.price=price;
 		this.category=cate;
-		
 	}
 	
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
 	public String getName() {
 		return name;
 	}
@@ -45,10 +37,8 @@ public class Item {
 		this.category = category;
 	}
 
-@Override
-public String toString() {
-	// TODO Auto-generated method stub
-	return this.name + " : "+ this.price + " , "+this.count +"개"+ this.category;
+public void print() {
+	System.out.println(this.name + " : "+ this.price + " , "+ this.category);
 }
 
 }

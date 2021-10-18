@@ -4,13 +4,17 @@ public class Cart {
 
 	
 	private String userId;
+	
+	
+	public void setUserId(User user) {
+		this.userId = userId;
+	}
+
+
 	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getItemName() {
 		return itemName;

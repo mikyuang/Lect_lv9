@@ -14,9 +14,10 @@ public static UserManager instance = new UserManager();
 	Random rn = new Random();
 	
 	private Vector<User> userList = new Vector<User>(); // 전체 유저 리스트
-	int userLog = -1;
+	
+	public int userLog = -1;
 
-	UserManager() {
+	public UserManager() {
 		init();
 	}
 
@@ -32,24 +33,40 @@ public static UserManager instance = new UserManager();
 			r = rn.nextInt(c.length);
 			name += c[r];
 			User temp = new User(name, rn.nextInt(5000));
-			userList.add(temp);
+			getUserList().add(temp);
 		}
 	}
 
-	public void join() {
+	public boolean join() {
+		int check = -1;
 		System.out.println("[가입] id 를 입력하세요.");
 		String id = sc.next();
-		User temp = new User(id, 0);
-		userList.add(temp);
-		System.out.println("[메세지] " + temp.getId() + "님 가입을 축하합니다.");
+		
+		for(int i=0; i<getUserList().size(); i++) {
+			if(id.equals(getUserList().get(i).getId())) {
+				check =i;
+				break;
+			}
+		}
+		if(check == -1) {
+			User temp = new User(id, 0);
+			
+			getUserList().add(temp);
+			System.out.println("[메세지] " + temp.getId() + "님 가입을 축하합니다.");
+			return true;
+			
+		}else {
+			System.out.println("이미 존재하는 id입니다.");
+			}
+		return false;
 	}
 
 	public boolean logIn() {
 		userLog = -1;
 		System.out.println("[로그인] id 를 입력하세요.");
 		String id = sc.next();
-		for (int i = 0; i < userList.size(); i++) {
-			if (id.equals(userList.get(i).getId())) {
+		for (int i = 0; i < getUserList().size(); i++) {
+			if (id.equals(getUserList().get(i).getId())) {
 				userLog = i;
 				break;
 			}
@@ -57,7 +74,7 @@ public static UserManager instance = new UserManager();
 		if (userLog == -1) {
 			System.out.println("[메세지] 없는 id 입니다.");
 		} else {
-			System.out.println("[메세지] " + userList.get(userLog).getId() + "님 로그인.");
+			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그인.");
 			return true;
 		}
 		return false;
@@ -65,19 +82,41 @@ public static UserManager instance = new UserManager();
 
 	public void logOut() {
 		if (userLog != -1) {
-			System.out.println("[메세지] " + userList.get(userLog).getId() + "님 로그아웃.");
+			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그아웃.");
 		}
 		userLog = -1;
 	}
 
 	public void printUser() {
-		for (int i = 0; i < userList.size(); i++) {
-			System.out.print("[" + i + "] "+userList.get(i));
+		for (int i = 0; i < getUserList().size(); i++) {
+			System.out.print("[" + i + "] ");
+		getUserList().get(i).print();
 			
 		}
 	}
+	public void deluser() {
+		System.out.println("[탈퇴] id 를 입력하세요.");
+		String id = sc.next();
+		
+		User delur = null;
+		for(User user : this.userList) {
+			if(id.equals(user.getId())){
+				delur = user;
+			}
+		}
+		this.userList.remove(delur);
+		System.out.println("탈퇴가 완료되었습니다.");
+	}
+
 	
-	
+	public Vector<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(Vector<User> userList) {
+		this.userList = userList;
+	}
+
 	
 	
 	

@@ -1,30 +1,30 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class User {
 
 	//회원정보.
+	private Vector<User> userList = new Vector<User>();
 	
 	private String id;
-	private String pw;
+	private int money;
 	
 	
 	
-	public User(String id, String pw) {
+	public User(String id, int mo) {
 		this.id=id;
-		this.pw=pw;
+		money=mo;
 	}
 	
-	public User(String name, int nextInt) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getId() {
 		return id;
 	}
-	public String getPw() {
-		return pw;
+	
+
+	public void print() {
+		System.out.println("["+id+"]"+"금액 : "+ money);
 	}
 
 

@@ -1,7 +1,7 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 
 import models.Cart;
 import models.Item;
@@ -11,14 +11,14 @@ public class ItemManager {
 
 	public static ItemManager instance = new ItemManager();
 	
-	 ArrayList<Item> itemList = new ArrayList<Item>();
-	 ArrayList<Cart> jangList = new ArrayList<Cart>();
+	 Vector<Item> itemList = new Vector<Item>();
+	 Vector<Cart> jangList = new Vector<Cart>();
 	
-	 ArrayList<String> category = new ArrayList<String>();
+	 Vector<String> category = new Vector<String>();
 	
 	Scanner sc = new Scanner(System.in);
 
-	public void ItemManager(){
+	public ItemManager(){
 		init();
 	}
 	public void init() {
@@ -69,19 +69,30 @@ public class ItemManager {
 		int n=0;
 		for(int i=0; i<itemList.size(); i++) {
 			if(category.get(caId).equals(itemList.get(i).getCategory())) {
-				System.out.println(n + ")"+itemList.get(i));
+				System.out.println(n + ")");
+				itemList.get(i).print();
 				n+=1;
 			}
 		}
 	}
 	
+	public void delItem(int index) {
+		
+		
+	}
+	
+	public void buyItem() {
+		
+	}
 	
 	public void addItem() {
 		System.out.println("추가) 아이템 이름을 입력하세요 : ");
 		String name = sc.next();
 		System.out.println("추가) 가격을 입력하세요: ");
 		int price = sc.nextInt();
+		
 		printCategory();
+		
 		System.out.println("추가) 카테고리를 입력하세요 : ");
 		int sel= sc.nextInt(); 
 		Item temp = new Item(name, price, category.get(sel));
@@ -94,10 +105,10 @@ public class ItemManager {
 		
 	}
 	
-	public void addCart(String usId, int caId, int itemId) {
+	public void addCart(User u, int caId, int itemId) {
 		int n=0;
 		Cart temp = new Cart();
-		temp.setUserId(usId);
+		temp.setUserId(u);
 		for(int i=0; i<itemList.size(); i++) {
 			if(category.get(caId).equals(itemList.get(i).getCategory())) {
 				if(itemId == n) {
@@ -107,10 +118,6 @@ public class ItemManager {
 			}
 		}
 		jangList.add(temp);
-	}
-	public void printJang(String users) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
