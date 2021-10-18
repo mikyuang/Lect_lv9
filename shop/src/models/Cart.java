@@ -6,7 +6,7 @@ public class Cart {
 	private String userId;
 	
 	
-	public void setUserId(User user) {
+	public void setUserId(String usId) {
 		this.userId = userId;
 	}
 

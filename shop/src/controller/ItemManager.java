@@ -61,7 +61,8 @@ public class ItemManager {
 	
 	public void printItemList() {
 		for(int i=0; i<itemList.size(); i++) {
-			System.out.println(i+" ) "+itemList.get(i));
+			System.out.println(i+" ) ");
+			itemList.get(i).print();
 		}
 	}
 	
@@ -83,6 +84,7 @@ public class ItemManager {
 	
 	public void buyItem() {
 		
+		
 	}
 	
 	public void addItem() {
@@ -98,6 +100,7 @@ public class ItemManager {
 		Item temp = new Item(name, price, category.get(sel));
 		itemList.add(temp);
 	}
+	
 	public void addCategory() {
 		System.out.println("카테고리 이름을 입력하세요 : ");
 		String name = sc.next();
@@ -105,10 +108,10 @@ public class ItemManager {
 		
 	}
 	
-	public void addCart(User u, int caId, int itemId) {
+	public void addCart(String usId, int caId, int itemId) {
 		int n=0;
 		Cart temp = new Cart();
-		temp.setUserId(u);
+		temp.setUserId(usId);
 		for(int i=0; i<itemList.size(); i++) {
 			if(category.get(caId).equals(itemList.get(i).getCategory())) {
 				if(itemId == n) {

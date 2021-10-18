@@ -74,13 +74,14 @@ public class Shop {//로그인 화면
 			
 			System.out.println("[카테고리] 번호를 입력하세요.[종료.-1]");
 			int caId = scan.nextInt();
+			
 			if (caId == -1)
 				break;
 			System.out.println("[아이템] 번호를 입력하세요. ");
 			im.printItemList(caId);
 			
 			int itemId = scan.nextInt();
-			im.addCart(um.getUserList().get(um.userLog), caId, itemId);
+			im.addCart(um.getUserList().get(um.userLog).getId(), caId, itemId);
 		}
 	}
 
