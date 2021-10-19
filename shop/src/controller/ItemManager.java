@@ -16,7 +16,16 @@ public class ItemManager {
 	 Vector<Item> itemList = new Vector<Item>();
 	 Vector<Cart> jangList = new Vector<Cart>();
 	
-	 Vector<String> category = new Vector<String>();
+	 public Vector<Item> getItemList() {
+		return itemList;
+	}
+	public Vector<Cart> getJangList() {
+		return jangList;
+	}
+	public Vector<String> getCategory() {
+		return category;
+	}
+	Vector<String> category = new Vector<String>();
 	
 	Scanner sc = new Scanner(System.in);
 
@@ -181,15 +190,47 @@ public class ItemManager {
 	
 	
 	public void printAllCart() {
-		for(int i=0; i<jangList.size(); i++) {
-			System.out.println("["+i+"]");
-			jangList.get(i).print();
+		System.out.println("size : "+this.jangList.size());
+		for(Cart ct : jangList) {
+			System.out.println(ct.getUserId()+" 님의 장바구니 : "+ ct.getItemName());
 		}
-	}
+	}	
+				
+
 	
 	public void addAllCart(){
+		//아이디를선택 검증맞으면  > 아이템이름/추가 > 장바구니에 반영.
+		int check=-1;
+		System.out.println("수정할 ID 입력하세요 : ");
+		String id = sc.next();
 		
-	}
+		for(int i=0; i<this.jangList.size(); i++) {
+		if (id.equals(um.getUserList().get(i).getId())) {
+			check =1;
+			
+		}
+		}if(check == -1) {
+			System.out.println(id+"님에게 추가할 아이템 입력하세요 : ");
+			String name = sc.next();
+			System.out.println("추가) 가격을 입력하세요: ");
+			int price = sc.nextInt();
+			
+			printCategory();
+			
+			System.out.println("추가) 카테고리를 입력하세요 : ");
+			int sel= sc.nextInt(); 
+			
+			this.jangList.get(check).setItemName(name);
+			
+			
+			
+		}else {
+			System.out.println("잘못된 입력입니다.");
+		}
+		}
+	
+	
+	
 	public void delAllCart() {
 		
 	}
