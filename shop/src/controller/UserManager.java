@@ -39,7 +39,7 @@ public static UserManager instance = new UserManager();
 
 	public boolean join() {
 		int check = -1;
-		System.out.println("[가입] id 를 입력하세요.");
+		System.out.println("[가입] id 를 입력하세요.\n");
 		String id = sc.next();
 		
 		for(int i=0; i<getUserList().size(); i++) {
@@ -52,18 +52,18 @@ public static UserManager instance = new UserManager();
 			User temp = new User(id, 0);
 			
 			getUserList().add(temp);
-			System.out.println("[메세지] " + temp.getId() + "님 가입을 축하합니다.");
+			System.out.println("[메세지] " + temp.getId() + "님 가입을 축하합니다.\n");
 			return true;
 			
 		}else {
-			System.out.println("이미 존재하는 id입니다.");
+			System.out.println("이미 존재하는 id입니다.\n");
 			}
 		return false;
 	}
 
 	public boolean logIn() {
 		userLog = -1;
-		System.out.println("[로그인] id 를 입력하세요.");
+		System.out.println("[로그인] id 를 입력하세요.\n");
 		String id = sc.next();
 		for (int i = 0; i < getUserList().size(); i++) {
 			if (id.equals(getUserList().get(i).getId())) {
@@ -72,9 +72,9 @@ public static UserManager instance = new UserManager();
 			}
 		}
 		if (userLog == -1) {
-			System.out.println("[메세지] 없는 id 입니다.");
+			System.out.println("[메세지] 없는 id 입니다.\n");
 		} else {
-			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그인.");
+			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그인.\n");
 			return true;
 		}
 		return false;
@@ -82,7 +82,7 @@ public static UserManager instance = new UserManager();
 
 	public void logOut() {
 		if (userLog != -1) {
-			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그아웃.");
+			System.out.println("[메세지] " + getUserList().get(userLog).getId() + "님 로그아웃.\n");
 		}
 		userLog = -1;
 	}
@@ -95,7 +95,7 @@ public static UserManager instance = new UserManager();
 		}
 	}
 	public void deluser() {
-		System.out.println("[탈퇴] id 를 입력하세요.");
+		System.out.println("[탈퇴] id 를 입력하세요.\n");
 		String id = sc.next();
 		
 		User delur = null;
@@ -105,7 +105,7 @@ public static UserManager instance = new UserManager();
 			}
 		}
 		this.userList.remove(delur);
-		System.out.println("탈퇴가 완료되었습니다.");
+		System.out.println("탈퇴가 완료되었습니다.\n");
 	}
 
 	
@@ -116,13 +116,4 @@ public static UserManager instance = new UserManager();
 	public void setUserList(Vector<User> userList) {
 		this.userList = userList;
 	}
-
-	
-	
-	
-	
-
-	
-	
-	
 }

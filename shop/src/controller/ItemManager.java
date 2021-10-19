@@ -63,7 +63,6 @@ public class ItemManager {
 		}
 	}
 	
-	
 	public void printCategory() {
 		for(int i=0; i<category.size(); i++) {
 			System.out.println(i+" )"+category.get(i));
@@ -88,7 +87,7 @@ public class ItemManager {
 		}
 	}
 	
-	public void delCate() {
+	public void delCate() {/////전체카데고리 삭제 
 		for(int i=0; i<category.size(); i++) {
 			System.out.println(i+")"+category.get(i));
 		}
@@ -103,7 +102,7 @@ public class ItemManager {
 		}
 	
 	
-	public void delItem() {
+	public void delItem() {////전체아이템 삭제
 		
 		System.out.println("삭제할 아이템 이름을 입력하세요 : ");
 		String name = sc.next();
@@ -113,12 +112,11 @@ public class ItemManager {
 			if(name.equals(jL.getItemName())) {
 				delJang = jL;
 			}
-	}
-	this.jangList.remove(delJang);
+		}
+	jangList.remove(delJang);
 	System.out.println("삭제가 완료되었습니다.");
 		
 	}
-	
 	public void buyItem() {
 		System.out.print("\n장바구니 아이템을 모두 구입하시겠습니까?\n1.yes\n2.no ");
 		int sel = sc.nextInt();
@@ -150,8 +148,6 @@ public class ItemManager {
 			return;
 		}
 	}
-	
-	
 	public void addItem() {
 		System.out.println("추가) 아이템 이름을 입력하세요 : ");
 		String name = sc.next();
@@ -172,7 +168,6 @@ public class ItemManager {
 		category.add(name);
 		
 	}
-	
 	public void addCart(String usId, int caId, int itemId) {
 		int n=0;
 		Cart temp = new Cart();
@@ -195,11 +190,7 @@ public class ItemManager {
 			System.out.println(ct.getUserId()+" 님의 장바구니 : "+ ct.getItemName());
 		}
 	}	
-				
-
-	
 	public void addAllCart(){
-		//아이디를선택 검증맞으면  > 아이템이름/추가 > 장바구니에 반영.
 		int check=-1;
 		System.out.println("수정할 ID 입력하세요 : ");
 		String id = sc.next();
@@ -237,8 +228,35 @@ public class ItemManager {
 			System.out.println("잘못된 입력입니다.");
 		}
 		}
+	
+	
 	public void delAllCart() {
+		int check=-1;
+		System.out.println("삭제할 ID 입력하세요 : ");
+		String id = sc.next();
 		
+		for(int i=0; i<this.jangList.size(); i++) {
+			if(this.jangList.get(i).getUserId() == um.getUserList().get(i).getId());{
+				if (id.equals(um.getUserList().get(i).getId())) {
+					check =1;
+			}
+		}
+		}if(check == -1) {
+			System.out.println("삭제할 아이템 이름을 입력하세요 : ");
+			String name = sc.next();
+			
+			Cart delJang = null;
+			for(Cart jL: this.jangList) {
+				if(name.equals(jL.getItemName())) {
+					delJang = jL;
+				}
+		}
+		this.jangList.remove(delJang);
+		System.out.println("삭제가 완료되었습니다.");
+			
+			
+		}else {
+			System.out.println("잘못된 입력입니다.");
+		}
 	}
-		
 }

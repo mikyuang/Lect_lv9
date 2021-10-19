@@ -14,7 +14,7 @@ public class Shop {//로그인 화면
 	void mainMenu() {
 		boolean run = true;
 		while (run) {
-			System.out.println("[1.가입] [2.탈퇴] [3.로그인] [4.로그아웃]" + "\n[100.관리자] [0.종료] ");
+			System.out.println("[1.가입] [2.탈퇴] [3.로그인] " + "\n[100.관리자] [0.종료]\n");
 			int sel = scan.nextInt();
 			if (sel == 1) {
 				um.join();
@@ -25,8 +25,6 @@ public class Shop {//로그인 화면
 				if (um.logIn()) {
 					loginMenu();
 				}
-			} else if (sel == 4) {
-				um.logOut();
 			} else if (sel == 100) {
 				managerMenu();
 			}
@@ -36,12 +34,15 @@ public class Shop {//로그인 화면
 	void loginMenu() {
 		boolean run = true;
 		while (run) {
-			System.out.println("[1.쇼핑] [2.장바구니목록] [0.뒤로가기]");
+			System.out.println("[1.쇼핑] [2.장바구니목록] [3.로그아웃] [0.뒤로가기]\n");
 			int sel = scan.nextInt();
 			if (sel == 1) {
 				shopMenu();
 			} else if (sel == 2) {
 				cartMenu();
+			} else if (sel == 3) {
+				um.logOut();
+				break;
 			} else if (sel == 0) {
 				break;
 			}
