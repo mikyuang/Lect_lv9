@@ -205,13 +205,15 @@ public class ItemManager {
 		String id = sc.next();
 		
 		for(int i=0; i<this.jangList.size(); i++) {
-		if (id.equals(um.getUserList().get(i).getId())) {
-			check =1;
-			
+			if(this.jangList.get(i).getUserId() == um.getUserList().get(i).getId());{
+				if (id.equals(um.getUserList().get(i).getId())) {
+					check =1;
+			}
 		}
 		}if(check == -1) {
 			System.out.println(id+"님에게 추가할 아이템 입력하세요 : ");
 			String name = sc.next();
+			
 			System.out.println("추가) 가격을 입력하세요: ");
 			int price = sc.nextInt();
 			
@@ -220,17 +222,21 @@ public class ItemManager {
 			System.out.println("추가) 카테고리를 입력하세요 : ");
 			int sel= sc.nextInt(); 
 			
-			this.jangList.get(check).setItemName(name);
-			
-			
-			
+			int n=0;
+			Cart temp = new Cart();
+			temp.setUserId(id);
+			for(int i=0; i<itemList.size(); i++) {
+				if(category.get(sel).equals(itemList.get(i).getCateGory())) {
+					temp.setItemName(itemList.get(i).getName());
+					n+=1;
+				}
+			}
+			jangList.add(temp);
+		
 		}else {
 			System.out.println("잘못된 입력입니다.");
 		}
 		}
-	
-	
-	
 	public void delAllCart() {
 		
 	}
