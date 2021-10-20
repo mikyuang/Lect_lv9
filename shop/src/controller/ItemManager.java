@@ -87,36 +87,41 @@ public class ItemManager {
 		}
 	}
 	
-	public void delCate() {/////전체카데고리 삭제 
+	public void delCate() {
 		for(int i=0; i<category.size(); i++) {
 			System.out.println(i+")"+category.get(i));
 		}
 		System.out.println("삭제할 카데고리를 입력하세요 : ");
 		String name = sc.next();
 		
-		Item delCa = null;
-		for(int i=0; i<category.size(); i++) {
-		//	if(name.equals();
+		String delCa = null;
+		for(String ct : this.category) {
+			if(name.equals(ct)) {
+				delCa = ct;
+			}
 		}
 		this.category.remove(delCa);
+		System.out.println("카데고리가 삭제되었습니다.");
 		}
 	
 	
-	public void delItem() {////전체아이템 삭제
+	public void delItem() {
 		
 		System.out.println("삭제할 아이템 이름을 입력하세요 : ");
 		String name = sc.next();
 		
-		Cart delJang = null;
-		for(Cart jL: this.jangList) {
-			if(name.equals(jL.getItemName())) {
-				delJang = jL;
+		Item delItem = null;
+		for(Item jL: this.itemList) {
+			if(name.equals(jL.getName())) {
+				delItem = jL;
 			}
 		}
-	jangList.remove(delJang);
+		itemList.remove(delItem);
 	System.out.println("삭제가 완료되었습니다.");
 		
 	}
+	
+	
 	public void buyItem() {
 		System.out.print("\n장바구니 아이템을 모두 구입하시겠습니까?\n1.yes\n2.no ");
 		int sel = sc.nextInt();
@@ -201,7 +206,8 @@ public class ItemManager {
 					check =1;
 			}
 		}
-		}if(check == -1) {
+	}
+		if(check == -1) {
 			System.out.println(id+"님에게 추가할 아이템 입력하세요 : ");
 			String name = sc.next();
 			
@@ -255,7 +261,7 @@ public class ItemManager {
 		System.out.println("삭제가 완료되었습니다.");
 			
 			
-		}else {
+		}else if(check != -1) {
 			System.out.println("잘못된 입력입니다.");
 		}
 	}
