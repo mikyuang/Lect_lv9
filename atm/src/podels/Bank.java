@@ -10,7 +10,7 @@ public class Bank {
 	
 	private static  String name;
 	
-	private Bank() {}
+	private Bank() {} //new 를 통한 Bank 생성이 안되게 막음 생성자를 숨김.
 	
 	public static String getName() {
 		return Bank.name;

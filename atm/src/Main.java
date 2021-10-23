@@ -27,9 +27,10 @@ public class Main {
 		 *
 		 * 
 		 * controller 패키지 안에 객체 처리를 할 기능 (메소드)정의
+		 * 
 		 * UserManager- (유저타입의 객체배열.)가입 탈퇴 
 		 * AccountManager(Account 타입의 객체배열)
-		 * BankManager -
+		 * BankManager -입금, 출금, 이체 조회 
 		 * FileManager
 		 */
 
