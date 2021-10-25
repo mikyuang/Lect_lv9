@@ -115,7 +115,7 @@ public class Game {
 					rnum = rn.nextInt(3)+1;
 					p.setAtt(p.getAtt()+rnum);
 					System.out.println("공격력이 "+rnum+"만큼 증가했다.");
-				}else if( rnum ==2){
+				}else if(rnum ==2){
 					rnum = rn.nextInt(3)+1;
 					p.setDef(p.getDef()+rnum);
 					System.out.println("방어력이 "+rnum+"만큼 증가했다.");
