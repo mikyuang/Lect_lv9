@@ -2,11 +2,12 @@ package controller;
 
 public class Zombie extends Unit{
 
-	private int power;
+	int power;
 	
 	public Zombie(int pos, int hp, int max) {
 		super(pos, hp, max);
 	}
+	
 	public void attack(Unit hero) {
 		
 		power = r.nextInt(max)+1;
