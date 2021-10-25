@@ -1,31 +1,49 @@
 package controller;
 
+import java.util.Random;
+
 public class ZombieKing extends Unit{
-	int shield;
+
+	Random r = new Random();
 	
-	public ZombieKing(String name, int hp, int att, int def, int pos, int shield) {
-		super(name, hp, att, def, pos);
-		this.shield = shield;
-	}
+	private int shield;
+
 	public int getShield() {
 		return shield;
 	}
+
 	public void setShield(int shield) {
 		this.shield = shield;
 	}
-	public void attack(Unit target) {
-		if(rn.nextInt(100)>74) {
-			int dam = (this.getAtt()-target.getDef())*(rn.nextInt(150)+50)/100;
-			if(dam<=0) {dam =1;}
-			dam*=2;
-			System.out.println(getName()+"의 필살기!!");
-			System.out.println(dam+"의 데미지!");
-			target.setHp(target.getHp()-dam);
-			System.out.println(target.getName()+"의 남은 체력 : "+target.getHp());
-		}else {
-			super.attack(target);
-		}
+	
+	public ZombieKing(int pos, int hp, int max, int shield) {
+		super(pos, hp, max);
+		this.shield=shield;
 	}
-
-
+	
+	public void attack(Unit hero) {
+		int a = r.nextInt(4)+1;
+		if(a==1) {
+			System.out.println("ZombieKig의 공격력 2배 증가!");
+			int power = 2 *(r.nextInt(max)+1);
+			hero.setHp(hero.getHp()- power);
+			if(hero.getHp()<=0) {
+				hero.setHp(0);
+			}
+			System.out.println("ZombieKing"+power+"만큼 공격!");
+			System.out.println("HERO HP : "+hero.getHp());
+		}else {
+			int power = r.nextInt(max)+1;
+			System.out.println("ZombidKing"+power+"만큼 공격!");
+			hero.setHp(hero.getHp()-power);
+			if(hero.getHp()<=0) {
+				hero.setHp(0);
+			}
+			System.out.println("ZombieKing"+power+"만큼 공격!");
+			System.out.println("HERO HP : "+hero.getHp());
+			
+		}
+		
+	}
+	
 }

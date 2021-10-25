@@ -1,46 +1,56 @@
 package controller;
 
 public class Hero extends Unit {
-	private int cnt =3;
-	
-	public Hero(String name, int hp, int att, int def, int pos) {
-		super(name, hp, att, def, pos);
-	}
-	
-	public int getcnt() {
-		return cnt;
-	}
-	
-	public void drink() {
-		if(cnt>0) {
-			System.out.println("회복약을 마십니다.");
-			System.out.println("체력이 100회복 되었습니다.");
-			this.setHp(this.getHp()+100);
-			System.out.println(this.getName()+"의 남은 체력 : "+this.getHp());
-			cnt--;
-		}else {
-			System.out.println("물약이 없습니다.");
-		}
-	}
-	public void attack(Unit target) {
-		if(target instanceof ZombieKing) {
-			if(((ZombieKing) target).shield>0) {
-				int dam = (this.getAtt()-target.getDef())*(rn.nextInt(150)+50)/100;
-				if(dam<=0) {dam = 1;}
-				System.out.println(getName()+"의 공격!");
-				System.out.println(dam+"의 데미지!");
-				((ZombieKing)target).setShield(((ZombieKing)target).getShield()-dam);
-				if(((ZombieKing)target).getShield()<=0) {
-					System.out.println(target.getName()+"의 쉴드가 파괴되었다!");
-					((ZombieKing)target).setShield(0);
-				}
-				System.out.println(target.getName()+"의 남은 체력 : "+target.getHp()+" (쉴드 : "+((ZombieKing)target).getShield()+")");
-			}else {
-				super.attack(target);
-			}
-		}else {
-			super.attack(target);
-		}
-	}
 
+	int power;
+	int cnt;
+	
+	public Hero(int pos, int hp, int max, int cnt) {
+		super(pos, hp, max);
+		this.cnt=cnt;
+	}
+	
+	@Override
+	public void attack(Unit enemy) {
+		if(enemy instanceof ZombieKing) {
+			ZombieKing ZK = (ZombieKing)enemy;
+			
+			power = r.nextInt(max)+1;
+			if(ZK.getShield() >0) {
+				int r = ZK.getShield() - power;
+				if(r >= 0) {
+					ZK.setShield(ZK.getShield()-power);
+				}else {
+					ZK.setShield(0);
+					ZK.setHp(ZK.getHp()-r);
+				}
+			}else {
+				ZK.setHp(ZK.getHp()-power);
+			}
+			
+			if(ZK.getHp()<=0) {
+				ZK.setHp(0);
+			}
+			System.out.println("HERO "+power+"만큼 공격!");
+			System.out.println("ZombieKing HP : "+ZK.getHp());
+		}else {
+			power = r.nextInt(max)+1;
+			enemy.setHp(enemy.getHp()-power);
+			if(enemy.getHp()<= 0) {
+				enemy.setHp(0);
+			}
+			System.out.println("HERO "+power+"만큼 공격!");
+			System.out.println("Zombie HP : "+enemy.getHp());
+		}
+	}
+	
+	public void rehp() {
+		if(cnt >0) {
+			setHp(getHp()+100);
+			System.out.println("체력이 회복되어"+getHp()+"가 되었습니다.");
+			cnt--;
+		}else if(cnt ==0) {
+			System.out.println("회복약이 없습니다.");
+		}
+	}
 }
