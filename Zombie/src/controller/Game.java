@@ -24,6 +24,7 @@ public class Game {
 	while(true) {
 		System.out.println("현재 위치 : "+pos);
 		
+		
 		System.out.println("[1] 올라간다.[2]회복한다.");
 		int move = sc.nextInt();
 		
