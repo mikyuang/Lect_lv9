@@ -24,7 +24,7 @@ public class Game {
 	while(true) {
 		System.out.println("현재 위치 : "+pos);
 		
-		System.out.println("[1] 올라간다.");
+		System.out.println("[1] 올라간다.[2]회복한다.");
 		int move = sc.nextInt();
 		
 		if(move ==1) {
@@ -36,6 +36,7 @@ public class Game {
 				System.out.println("좀비가 나타났다!");
 				
 				while(true) {
+					System.out.println();
 					System.out.println("1] 공격  2]물약");
 					int sel = sc.nextInt();
 					
@@ -81,7 +82,7 @@ public class Game {
 				break;
 			}
 		}else if(move ==2) {
-			break;
+			hero.rehp();
 		}
 	}
 	}

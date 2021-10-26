@@ -31,16 +31,19 @@ public class ZombieKing extends Unit{
 				hero.setHp(0);
 			}
 			System.out.println("ZombieKing"+power+"만큼 공격!");
+			System.out.println("King HP : "+this.getHp());
 			System.out.println("HERO HP : "+hero.getHp());
+			System.out.println();
 		}else {
 			int power = r.nextInt(max)+1;
-			System.out.println("ZombidKing"+power+"만큼 공격!");
+			System.out.println("King"+power+"만큼 공격!");
 			hero.setHp(hero.getHp()-power);
 			if(hero.getHp()<=0) {
 				hero.setHp(0);
 			}
-			System.out.println("ZombieKing"+power+"만큼 공격!");
+			System.out.println("King HP : "+this.getHp());
 			System.out.println("HERO HP : "+hero.getHp());
+			System.out.println();
 			
 		}
 		

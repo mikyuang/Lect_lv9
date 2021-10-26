@@ -17,10 +17,13 @@ public class Zombie extends Unit{
 			hero.setHp(0);
 		}
 		this.setHp(this.getHp()+power/2);
-	}
-	public void print() {
-		System.out.println("Zombie"+power + "만킄 공격!");
-		System.out.println("Hero HP : "+"Zombie HP : "+this.getHp());
+	
+		System.out.println("Zombie가 "+power + "만큼 공격!");
+		System.out.println( "Zombie HP : "+this.getHp());
+		System.out.println("HERO HP : "+ hero.getHp());
+		
+		System.out.println();
+	
 	}
 	
 }

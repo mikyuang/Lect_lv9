@@ -33,6 +33,7 @@ public class Hero extends Unit {
 			}
 			System.out.println("HERO "+power+"만큼 공격!");
 			System.out.println("ZombieKing HP : "+ZK.getHp());
+			System.out.println("HERO HP : "+this.getHp());
 		}else {
 			power = r.nextInt(max)+1;
 			enemy.setHp(enemy.getHp()-power);
@@ -41,6 +42,7 @@ public class Hero extends Unit {
 			}
 			System.out.println("HERO "+power+"만큼 공격!");
 			System.out.println("Zombie HP : "+enemy.getHp());
+			System.out.println("HERO HP : "+this.getHp());
 		}
 	}
 	
