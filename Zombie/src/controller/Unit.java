@@ -43,5 +43,5 @@ abstract public class Unit {
 		}System.out.println("현재위치  : "+pos);
 	}
 	
-	public void attack(Unit unit);
+	 
 }
