@@ -19,15 +19,18 @@ public class Game {
 	
 	
 	public void run() {
+		int pos =1;
+		hero.setPos(pos);
 	while(true) {
-		System.out.println("현재 위치 : "+hero.getPos());
+		System.out.println("현재 위치 : "+pos);
 		
 		System.out.println("[1] 올라간다.");
 		int move = sc.nextInt();
+		
 		if(move ==1) {
+			pos++;
+			hero.setPos(pos);
 			
-			hero.setPos(move);
-			hero.getPos();
 			
 			if(hero.getPos()==5) {
 				System.out.println("좀비가 나타났다!");
@@ -47,7 +50,7 @@ public class Game {
 						break;
 					}
 					if(zombie.getHp()<= 0) {
-						System.out.printf("%s를 이겼습니다.",zombie);
+						System.out.print("zombie를 이겼습니다.\n");
 						break;
 					}
 				}
@@ -67,12 +70,11 @@ public class Game {
 						System.out.println("=====HERO DIE! GAME OVER.=====");
 						break;
 					}
-					if(zombie.getHp()<= 0) {
-						System.out.printf("%s를 이겼습니다.",ZK);
+					if(ZK.getHp()<= 0) {
+						System.out.print("ZombieKing를 이겼습니다.");
 						break;
 					}
 				}
-				
 			}
 			if(hero.getPos()==10) {
 				System.out.println("=====HERO WIN!!=====");
