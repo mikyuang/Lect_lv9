@@ -2,7 +2,14 @@ package controller;
 
 import java.util.Random;
 
+interface Damageable{
+	public void damge(int att);
+}
+
 abstract public class Unit {
+	
+	//좀비 유닛 추상클래스로 처리.
+	//인터페이스 활용 어택 처리.
 	
 	private int pos;
 	private int hp;
@@ -36,5 +43,5 @@ abstract public class Unit {
 		}System.out.println("현재위치  : "+pos);
 	}
 	
-	abstract void attack(Unit unit);
+	public void attack(Unit unit);
 }

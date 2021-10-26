@@ -1,6 +1,6 @@
 package controller;
 
-public class Zombie extends Unit{
+abstract public class Zombie extends Unit implements Damageable{
 
 	int power;
 	
@@ -20,6 +20,15 @@ public class Zombie extends Unit{
 	
 		System.out.println("Zombie가 "+power + "만큼 공격!");
 	
+	}
+	@Override
+	public void damge(int att) {
+		hp-=att;
+		if(hp<=0) {
+			System.out.println("Zombie를 쳐지했다!");
+		}else {
+			System.out.println("Zombie HP : "+power);
+		}
 	}
 	
 }
