@@ -24,27 +24,20 @@ public class ZombieKing extends Unit{
 	public void attack(Unit hero) {
 		int a = r.nextInt(4)+1;
 		if(a==1) {
-			System.out.println("ZombieKig의 공격력 2배 증가!");
+			System.out.println("*King의 공격력 2배 증가*");
 			int power = 2 *(r.nextInt(max)+1);
 			hero.setHp(hero.getHp()- power);
 			if(hero.getHp()<=0) {
 				hero.setHp(0);
 			}
-			System.out.println("ZombieKing"+power+"만큼 공격!");
-			System.out.println("King HP : "+this.getHp());
-			System.out.println("HERO HP : "+hero.getHp());
-			System.out.println();
+			System.out.println("King의 "+power+" 만큼 공격!");
 		}else {
 			int power = r.nextInt(max)+1;
-			System.out.println("King"+power+"만큼 공격!");
+			System.out.println("King의 "+power+"만큼 공격!");
 			hero.setHp(hero.getHp()-power);
 			if(hero.getHp()<=0) {
 				hero.setHp(0);
 			}
-			System.out.println("King HP : "+this.getHp());
-			System.out.println("HERO HP : "+hero.getHp());
-			System.out.println();
-			
 		}
 		
 	}
