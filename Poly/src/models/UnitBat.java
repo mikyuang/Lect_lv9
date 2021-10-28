@@ -1,9 +1,6 @@
 package models;
 
-public class UnitBat {
+public class UnitBat extends Unit {
 
-	public UnitBat() {
-		// TODO Auto-generated constructor stub
-	}
 
 }

@@ -1,9 +1,7 @@
 package models;
 
-public class UnitOrc {
+public class UnitOrc extends Unit{
 
-	public UnitOrc() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 }

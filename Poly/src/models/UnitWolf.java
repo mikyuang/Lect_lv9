@@ -1,9 +1,7 @@
 package models;
 
-public class UnitWolf {
+public class UnitWolf extends Unit{
 
-	public UnitWolf() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 }
