@@ -8,5 +8,4 @@ public class UnitBat extends Unit {
 	public void skill() {
 		System.out.println("적 1명에세 침묵시전!");
 	}
-
 }

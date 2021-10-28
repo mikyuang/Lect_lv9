@@ -11,7 +11,6 @@ public class StageTitle extends Stage{
 		if(start.equals("시작"));
 		GameManager.nextStage = "LOBBY";
 		return false;
-		
 	}
 	@Override
 	public void init() {

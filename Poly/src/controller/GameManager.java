@@ -13,16 +13,14 @@ public class GameManager {
 	String curStage ="";
 	Map<String, Stage> stageList = new HashMap<String, Stage>();
 	
-	GameManager(){
+	public GameManager(){
 		stageList.put("TITLE", new StageTitle());//map에 추가
 		stageList.put("BATTLE", new StageBattle());
 		stageList.put("LOBBY", new StageLobby());
 		
 		nextStage = "TITLE";
-		
 	}
-	
-	boolean changeStage() {
+	public boolean changeStage() {
 		if(curStage.equals(nextStage)) return true;
 		
 		curStage = nextStage;
@@ -36,7 +34,5 @@ public class GameManager {
 		}
 		if(nextStage.equals(""))return false;
 		else return true;
-		
 	}
-
 }

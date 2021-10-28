@@ -1,10 +1,10 @@
 package models;
 
 public abstract class Unit {
-	int curhp;
+	public int curhp;
 	int maxhp;
 	int power;
-	String name;
+	public String name;
 	String state = "노말";
 	Unit(){};
 	
