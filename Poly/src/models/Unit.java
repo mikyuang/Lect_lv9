@@ -28,7 +28,7 @@ public abstract class Unit {
 		power=pw;
 	};
 	
-	void attack(Unit target) {
+	public void attack(Unit target) {
 		target.curhp -= power;
 		System.out.println("["+ name+"] 이 "+"["+target.name + "] 에게 "+power+"의 데미지!");
 		if(target.curhp <=0) {
@@ -36,7 +36,7 @@ public abstract class Unit {
 			target.curhp=0;
 		}
 	}
-	void printData() {
+	public void printData() {
 		System.out.println("["+name+"]["+curhp+"/"+maxhp+"]["+power+"]");
 	}
 
