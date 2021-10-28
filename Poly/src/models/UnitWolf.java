@@ -2,7 +2,7 @@ package models;
 
 public class UnitWolf extends Unit{
 
-	UnitWolf(){
+	public UnitWolf(){
 		name = "늑대";
 	}
 	public void skill() {

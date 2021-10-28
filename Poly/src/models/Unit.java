@@ -6,9 +6,9 @@ public abstract class Unit {
 	int power;
 	public String name;
 	String state = "노말";
-	Unit(){};
+	public Unit(){};
 	
-	Unit(String na, int max, int pw){
+	public Unit(String na, int max, int pw){
 		name = na;
 		maxhp=max;
 		curhp=max;

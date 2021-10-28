@@ -3,8 +3,7 @@ package controller;
 import java.util.Random;
 import java.util.Vector;
 
-import models.Player;
-import models.Unit;
+import models.*;
 
 public class UnitManager {
 
@@ -33,7 +32,7 @@ public class UnitManager {
 			
 			try {
 				Class<?> clazz = Class.forName(path+mons[num]);//해당 클래스를 가져온다. 
-				Object obj = clazz.getDeclaredConstructor().newInstance();//해당 클래스의 객체를 만들어 주소를 저장한다.
+				Object obj = clazz.newInstance();//해당 클래스의 객체를 만들어 주소를 저장한다.
 							//clazz.newInstance()해도 된다. 단지 - 선이 그어져서 나온다.
 				
 				Unit temp = (Unit)obj;		//해당 클래스가 유닛을 상속받았기 때문에 부모클래스인 유닛으로 형변환 할수있다.

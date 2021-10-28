@@ -2,7 +2,7 @@ package models;
 
 public class UnitOrc extends Unit{
 
-	UnitOrc(){
+	public UnitOrc(){
 		name = "오크";
 	}
 	public void skill() {
