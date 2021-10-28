@@ -15,7 +15,7 @@ public abstract class Unit {
 		power =pw;
 		
 	};
-	void init(int max, int pw) {
+	public void init(int max, int pw) {
 		maxhp=max;
 		curhp=max;
 		power=pw;
