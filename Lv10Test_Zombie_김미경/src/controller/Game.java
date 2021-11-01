@@ -57,14 +57,36 @@ public class Game {
 				}
 				
 			}if(hero.getPos()==9) {
-				
+				System.out.println("== ZOMBIEKING이 나타났다!!! ==");
+				while(true){
+					System.out.println("[1] 공격  [2]물약");
+					int sel = sc.nextInt();
+					
+					if(sel ==1) {
+						ZK.attack(hero);
+						hero.attack(ZK);
+						
+					}else if(sel ==2) {
+						hero.heal();
+					}if(hero.getHp()<=0) {
+						System.out.println("=====HERO DIE! GAME OVER.=====");
+						break;
+					}
+					if(ZK.getHp()<= 0) {
+						System.out.print("ZombieKing를 이겼습니다.");
+						break;
+					}
+				}
+			}
+			if(hero.getPos()==10) {
+				System.out.println("=====HERO WIN!!=====");
+				break;
 			}
 			
 			
+			
 		}else if(move ==2) {
-			
-		}else {
-			
+			hero.heal();
 		}
 		
 	}
