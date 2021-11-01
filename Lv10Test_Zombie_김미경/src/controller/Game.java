@@ -21,7 +21,7 @@ public class Game {
 		hero.setPos(pos);
 		
 	while(true) {
-		System.out.println("[ 현재위치 :"+pos+"층 ]");
+		System.out.println("[현재위치 : "+pos+"층 ]");
 		
 		System.out.println("[1]올라간다. [2]회복한다.");
 		int move = sc.nextInt();
@@ -39,18 +39,18 @@ public class Game {
 					int sel = sc.nextInt();
 					
 					if(sel ==1) {
-						zb.attack(hero);
 						hero.attack(zb);
+						zb.attack(hero);
 						
 					}else if (sel==2) {
 						hero.heal();
 						
-					}if(hero.getHp()<=0) {
-						System.out.println("== HERO DIE! GAME OVER! ==");
-						break;
 					}
 					if(zb.getHp()<=0) {
-						System.out.println("ZOMBIE WIN!!");
+						System.out.println("ZOMBIE를 이겼습니다!");
+						break;
+					}if(hero.getHp()<=0) {
+						System.out.println("== HERO DIE! GAME OVER! ==");
 						break;
 					}
 					
@@ -63,14 +63,16 @@ public class Game {
 					int sel = sc.nextInt();
 					
 					if(sel ==1) {
-						ZK.attack(hero);
 						hero.attack(ZK);
+						ZK.attack(hero);
 						
 					}else if(sel ==2) {
 						hero.heal();
+						
 					}if(hero.getHp()<=0) {
 						System.out.println("=====HERO DIE! GAME OVER.=====");
 						break;
+						
 					}
 					if(ZK.getHp()<= 0) {
 						System.out.print("ZombieKing를 이겼습니다.");

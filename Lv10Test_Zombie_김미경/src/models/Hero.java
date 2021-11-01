@@ -27,7 +27,7 @@ public class Hero extends Unit{
 			
 		power = getR().nextInt(getMAX())+1;
 		if(ZK.getSh() > 0) {
-			System.out.println("KING의 쉴드력 : "+ZK.getSh());
+			System.out.println("KING의 쉴드 : "+ZK.getSh());
 			int a = ZK.getSh() - power;
 			if(a >= 0) {
 				ZK.setSh(ZK.getSh()-power);
@@ -43,9 +43,12 @@ public class Hero extends Unit{
 		if(ZK.getHp()<=0) {
 			ZK.setHp(0);
 		}
-		System.out.println("HERO의 "+power+"만큼의 데미지!");
-		System.out.println("현재 KING의 HP : "+ZK.getHp());
-		System.out.println("현재 HERO의 HP : "+this.getHp());		
+		System.out.println();
+		System.out.println("[HERO "+power+"공격!]");
+		System.out.println();
+		System.out.println("[HERO HP:"+getHp()+"]");
+		System.out.println("[ZombieKING HP: "+ZK.getHp()+"]");
+		System.out.println();
 		
 		}else {
 			power = getR().nextInt(getMAX())+1;
@@ -53,9 +56,10 @@ public class Hero extends Unit{
 			if(zom.getHp()<=0) {
 				zom.setHp(0);
 			}
-			System.out.println("HERO의 "+power+"만큼의 데미지!");
-			System.out.println("현재 ZOMBIE의 HP : "+zom.getHp());
-			System.out.println("현재 HERO의 HP : "+this.getHp());		
+			System.out.println("[HERO "+power+"공격!]");
+			System.out.println();
+			System.out.println("[HERO HP: "+getHp()+"]");
+			System.out.println("[Zombie HP: "+zom.getHp()+"]");
 		}
 	}
 	

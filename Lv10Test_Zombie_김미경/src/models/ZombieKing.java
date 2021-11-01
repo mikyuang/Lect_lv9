@@ -44,10 +44,11 @@ public class ZombieKing extends Unit{
 			if(hero.getHp()<=0) {
 				hero.setHp(0);
 			}
-			System.out.println("KING의 "+power+"만큼의 데미지!");
+			System.out.println("[KING의 "+power+"의 공격!]");
+			System.out.println("========================");
 		}else {
 			int power = r.nextInt(getMAX()+1);
-			System.out.println("KING의 "+power+"만큼의 데미지!");
+			System.out.println("[KING의 "+power+"의 공격]!");
 			hero.setHp(hero.getHp()-power);
 			if(hero.getHp()<=0) {
 				hero.setHp(0);

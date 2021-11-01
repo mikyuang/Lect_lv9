@@ -1,7 +1,7 @@
 package controller;
 //시작 06:10
-//종료 09:46
-//소요 03:36
+//종료 10:16
+//소요 04:06
 
 public class main {
 
