@@ -5,4 +5,11 @@ package controller;
 
 public class Main {
 
+	public static void Main(String[] args) {
+		
+		Game g = new Game();
+		
+		g.run();
+		
+	}
 }

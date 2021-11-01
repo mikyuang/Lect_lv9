@@ -6,23 +6,19 @@ abstract public class Unit {
 
 	 private int hp;
 	 private int pos;
-	 private String name;
-	 private int att;
+	 private int MAX;
+//	 private int att;
 	 
-	Random r;
+	private Random r;
 
-
-	 public Unit(String name, int pos, int hp , int att) {
-		 this.name=name;
+	
+	public Unit(int pos, int hp , int MAX) {
 		 this.hp=hp;
 		 this.pos=pos;
-		 this.att=att;
+		 this.MAX=MAX;
 		 r=new Random();
 	 }
 	 
-	 public String getName() {
-			return name;
-		}
 	 	public int getHp() {
 			return hp;
 		}
@@ -39,12 +35,26 @@ abstract public class Unit {
 		public Random getR() {
 			return r;
 		}
+		
+		public int getMAX() {
+			return MAX;
+		}
+
+		public void setMAX_HP(int MAX) {
+			MAX = MAX;
+		}
+
+		public void setR(Random r) {
+				this.r = r;
+		}
+
+		
 		public void move() {
 			if(pos <= 10) {
 				pos++;
 			}
 			System.out.println("현재 위치 : "+ pos);
 		}
-		
+		abstract public void attack(Unit unit);
 
 }
