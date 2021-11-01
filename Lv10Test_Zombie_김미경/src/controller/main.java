@@ -3,9 +3,9 @@ package controller;
 //종료 09:46
 //소요 03:36
 
-public class Main {
+public class main {
 
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		
 		Game g = new Game();
 		
