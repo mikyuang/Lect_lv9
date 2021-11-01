@@ -1,6 +1,6 @@
 package controller;
 
-abstract public class Zombie extends Unit implements Damageable{
+public class Zombie extends Unit {
 
 	int power;
 	
@@ -8,39 +8,16 @@ abstract public class Zombie extends Unit implements Damageable{
 		super(pos, hp, max);
 	}
 	
-//	public void attack(Unit hero) {
-//		
-//		power = r.nextInt(max)+1;
-//		
-//		hero.setHp(hero.getHp()- power);
-//		if(hero.getHp() <= 0) {
-//			hero.setHp(0);
-//		}
-//		this.setHp(this.getHp()+power/2);
-//	
-//		System.out.println("Zombie가 "+power + "만큼 공격!");
-//	
-//	}
-	
-	@Override
-	public void damge(int att) {
-		
-		hp-=att;
-		
+	public void attack(Unit hero) {
 		power = r.nextInt(max)+1;
 		
-		hero.setHp(hero.getHp()- power);
-		
-		if(hero.getHp() <= 0) {
-			System.out.println("Zombie를 쳐지했다!");
+		hero.setHp(hero.getHp()-power);
+		if(hero.getHp()<= 0) {
 			hero.setHp(0);
 		}
 		this.setHp(this.getHp()+power/2);
-	
-		System.out.println("Zombie가 "+power + "만큼 공격!");
-	
-	
 		
+		System.out.printf("좀비가 "+power +"의 데미지!\n"+ "hero hp :"+hero.getHp()+"\n좀비 hp : "+ this.getHp()+"\n");
 		
 	}
 	

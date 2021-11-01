@@ -16,9 +16,6 @@ public class Game {
 	ZombieKing ZK = new ZombieKing(9, 200, 20, 50);
 
 	
-	
-	
-	
 	public void run() {
 		int pos =1;
 		hero.setPos(pos);

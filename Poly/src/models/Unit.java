@@ -30,7 +30,7 @@ public abstract class Unit {
 	
 	public void attack(Unit target) {
 		target.curhp -= power;
-		System.out.println("["+ name+"] 이 "+"["+target.name + "] 에게 "+power+"의 데미지!");
+		System.out.println("["+ name+"]가 "+"["+target.name + "]에게 "+power+"의 데미지!");
 		if(target.curhp <=0) {
 			System.out.println("["+target.name+"] 을 처지!!");
 			target.curhp=0;
