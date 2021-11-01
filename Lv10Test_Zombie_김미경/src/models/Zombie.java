@@ -4,8 +4,8 @@ abstract public class Zombie extends Unit{
 
 	private int power;
 	
-	public Zombie(int pos, int hp, int MAX_HP) {
-		super(pos, hp, MAX_HP);
+	public Zombie(String name, int pos, int hp ,int att) {
+		super(name, pos, hp,att);
 	}
 	
 	

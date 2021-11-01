@@ -5,33 +5,30 @@ import java.util.Random;
 abstract public class Unit {
 
 	 private int hp;
-	 private int MAX_HP;
 	 private int pos;
+	 private String name;
+	 private int att;
 	 
-	 Random r;
+	Random r;
 
 
-	 public Unit(int pos, int hp, int MAX_HP) {
+	 public Unit(String name, int pos, int hp , int att) {
+		 this.name=name;
 		 this.hp=hp;
 		 this.pos=pos;
-		 this.MAX_HP=MAX_HP;
+		 this.att=att;
 		 r=new Random();
 	 }
 	 
+	 public String getName() {
+			return name;
+		}
 	 	public int getHp() {
 			return hp;
 		}
 		public void setHp(int hp) {
 			this.hp = hp;
 		}
-		
-		public int getMAX_HP() {
-			return MAX_HP;
-		}
-		public void setMAX_HP(int MAX_HP) {
-			MAX_HP = MAX_HP;
-		}
-		
 		public int getPos() {
 			return pos;
 		}
@@ -48,6 +45,6 @@ abstract public class Unit {
 			}
 			System.out.println("현재 위치 : "+ pos);
 		}
-
+		
 
 }
