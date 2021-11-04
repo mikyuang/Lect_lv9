@@ -99,7 +99,6 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 			}
 		}
 		shuffle();
-		
 	}
 	
 	
@@ -124,8 +123,6 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 		}
 		
 	}
-	
-	
 	private void setMap() {
 		int x = 700/2-100*SIZE/2;
 		int y = 700/2-100*SIZE/2;
@@ -141,7 +138,7 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 				
 				this.map[i][j].setOpaque(true);
 				this.map[i][j].setBorderPainted(false);
-				this.map[i][j].setBackground(Color.gray);
+				this.map[i][j].setBackground(Color.ORANGE);
 				this.map[i][j].addActionListener(this);
 			
 				add(this.map[i][j]);
@@ -195,8 +192,9 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 	}
 }	
 	
-	
 	private void resetGame() {
+		this.gameNum =1;
+		
 		isRun = false;
 		this.ms =0;
 		this.timer.setText("READY");
@@ -206,7 +204,7 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 		for(int i=0; i<SIZE; i++) {
 			for(int j=0; j<SIZE; j++) {
 				this.map[i][j].setText(this.front[i][j]+"");
-				this.map[i][j].setBackground(Color.gray);
+				this.map[i][j].setBackground(Color.orange);
 			}
 		}
 	}
@@ -221,12 +219,10 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 //		}
 //		return check;
 		
-			if(this.gameNum>SIZE*SIZE*2)
+			if(this.gameNum > SIZE * SIZE * 2)
 				return false;
 			else
 				return true;
-		
-	
 	}
 
 	@Override
