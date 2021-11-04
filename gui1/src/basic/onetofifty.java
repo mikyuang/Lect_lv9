@@ -50,31 +50,29 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 	public GamePalne() {
 		
 		setLayout(null);
-		setBounds(0, 0, 700, 700);
+		setBounds(0, 0, 700, 800);
 		
 		setTitle();
 		setTimer();
 		
 		setData();
 		setMap();
-		setResetButton();
 		
-		run();
+		setResetButton();
 	}
 	
 	private void setResetButton() {
 		this.reset.setText("RESET");
-		this.reset.setBounds(700/2-100/2,800-100, 100, 50);
+		this.reset.setBounds(700/2-100/2,800-150, 100, 50);
 		this.reset.addActionListener(this);
 		
 		add(this.reset);
 	}
 
 	private void setTimer() {
-	this.timer.setBounds(0, 0, 200, 50);
+	this.timer.setBounds(20, 0, 200, 50);
 	this.timer.setBackground(Color.gray);
 	this.timer.setHorizontalAlignment(JLabel.CENTER);
-	
 	
 	add(this.timer);
 		
@@ -83,6 +81,7 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 	private void setTitle() {
 		this.title.setBounds(0,0,700,100);
 		this.title.setHorizontalAlignment(JLabel.CENTER);
+		this.title.setVerticalAlignment(JLabel.BOTTOM);
 		this.title.setFont(new Font("", Font.BOLD,30));
 		
 		add(this.title);
@@ -137,7 +136,9 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 			
 				this.map[i][j].setBounds(x, y, 100, 100);
 				this.map[i][j].setText(this.front[i][j]+"");
-			
+				this.map[i][j].setFont(new Font("THEJung170",Font.PLAIN,20));
+				
+				
 				this.map[i][j].setOpaque(true);
 				this.map[i][j].setBorderPainted(false);
 				this.map[i][j].setBackground(Color.gray);
@@ -183,6 +184,7 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 							this.map[i][j].setText(this.front[i][j]+"");
 						}
 						this.gameNum++;
+						
 						isRun = winCheck();
 						if(!isRun)
 							new AlertResult(this.ms);//성적 출력
@@ -191,7 +193,7 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 			}
 		}
 	}
-}		
+}	
 	
 	
 	private void resetGame() {
@@ -230,10 +232,9 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 	@Override
 	public void run() {
 		while(true) {
-			System.out.println("123");
 			if(isRun) {
 			this.ms++;
-			this.timer.setText(String.format("$5d.%3d", this.ms/1000, this.ms%1000));
+			this.timer.setText(String.format("%5d.%3d", this.ms / 1000, this.ms % 1000));
 			}
 			try {
 				Thread.sleep(1);
@@ -266,7 +267,6 @@ class Game extends JFrame{
 		
 		panel.run();//생성된 runnable의 호출.>스레드 가동
 	}
-	
 }
 
 public class onetofifty {
@@ -275,7 +275,6 @@ public class onetofifty {
 		// TODO Auto-generated method stub
 		
 		Game g = new Game();
-		
 		
 	}
 
