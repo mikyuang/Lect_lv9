@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
+class SnakeGame2 extends JPanel implements ActionListener, KeyListener, MouseListener{
 
 	private final int SIZE =10;
 	private SnakeRect[][] map = new SnakeRect[SIZE][SIZE];
@@ -76,7 +78,7 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
 		}
 		this.reset.setBounds(700-180, y-50, 100, 50);
 		this.reset.setText("RESET");
-		this.reset.addActionListener(this);
+		this.reset.addMouseListener(this);
 		add(this.reset);
 		
 	}
@@ -138,10 +140,10 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
 			
 			this.snake.add(new SnakeRect(t.getX(),t.getY(),t.getW(),t.getH(),c));
 			
-			//yx
+			//yx //reset
 			ArrayList<Integer> pair = new ArrayList<Integer>();
-			pair.add(0); //맵의 y인덱스  
-			pair.add(i);//맵의 x인덱스 
+			pair.add(0);	//맵의 y인덱스  
+			pair.add(i);	//맵의 x인덱스 
 			this.yx.add(pair);
 			
 		}
@@ -229,21 +231,21 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
 		else if(this.dir == UP)
 			yy--;
 		
-		//체크
+		//map 체크
 		if(xx < 0  || xx >= SIZE || yy < 0 || yy >= SIZE)
 			return;
 		
-		//몸체크!
+		//snake 체크
 		for(int i=0; i<this.yx.size(); i++) {
 			if(yy== this.yx.get(i).get(0) && xx == this.yx.get(i).get(1))
 				this.death = true;
 		}
 		//아이템 체크
-		boolean isGrow = false;//몸통이 아이템으로 커진것을 체크
+		boolean isGrow = false; //몸통이 아이템으로 커진것을 체크
 		for(int i=0; i<this.itemYx.size(); i++) {
 			if(yy ==this.itemYx.get(i).get(0) && xx == this.itemYx.get(i).get(1)) {
 				isGrow = true;
-			this.items.remove(i);//먹은 아이템 삭제.
+			this.items.remove(i); //먹은 아이템 삭제.
 			this.itemYx.remove(i);
 			
 			}
@@ -260,7 +262,7 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
 				temp.setC(new Color(153, 167, 153));
 				this.snake.set(i, temp);
 				
-				ArrayList<Integer> pair = this.yx.get(i-1);//좌표수정해서 물려받기 한다. 
+				ArrayList<Integer> pair = this.yx.get(i-1); //좌표수정해서 물려받기 한다. 
 				this.yx.set(i, pair);
 			}
 			SnakeRect t = this.map[yy][xx];
@@ -313,9 +315,41 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener{
 				this.map[i][j].setC(Color.gray);
 			}
 		}
-		move();
+		
+		
 		
 		this.reset.setVisible(false);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		//리셋 
+		
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 
