@@ -65,12 +65,7 @@ class Nemo{
 		this.c = c;
 	}
 	
-	
 }
-
-
-
-
 
 public class NemoDraw {
 
