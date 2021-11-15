@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -67,7 +69,7 @@ class SnakeRect{
 }
 
 
-class SnakeGame extends JPanel implements KeyListener , ActionListener{
+class SnakeGame extends JPanel implements KeyListener , ActionListener,MouseListener{
 	//맵, 방향 버튼, 뱀
 	
 	
@@ -114,13 +116,6 @@ class SnakeGame extends JPanel implements KeyListener , ActionListener{
 		addKeyListener(this);
 	}
 
-	
-	
-	
-	
-	
-
-
 
 
 	private void setBtn() {
@@ -159,8 +154,8 @@ class SnakeGame extends JPanel implements KeyListener , ActionListener{
 		for(int i=0; i<this.snake.length;  i++) {
 			SnakeRect temp = this.map[0][i];
 			
-			int x = temp.getX();
-			int y = temp.getY();
+			int x = temp.getX();     //temp getX에 값이 null이라서 창 자체가 안 뜨는 오류가 있었음
+			int y = temp.getY();	//해결책 -> public SankeGame() 안에 setMap 다음 setSnake 순으로 바꿔줌.
 			int w = temp.getW();
 			int h = temp.getH();
 			Color c = Color.green;
@@ -348,6 +343,46 @@ class SnakeGame extends JPanel implements KeyListener , ActionListener{
 	}
 
 	private void resetMap() {
+
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(e.getSource() == this.reset) {
+			
+			
+			
+		
+		}
+	}
+
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

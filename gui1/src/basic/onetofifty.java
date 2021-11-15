@@ -12,7 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
+//복습 - 횟수 
+
 class AlertResult extends JFrame{
+	
 	private JLabel text = new JLabel();
 	
 	public AlertResult(int ms) {
@@ -27,7 +30,6 @@ class AlertResult extends JFrame{
 		add(this.text);
 		setVisible(true);
 	}
-	
 }
 
 
@@ -129,17 +131,18 @@ class GamePalne extends JPanel implements ActionListener ,Runnable{
 		
 		for(int i=0; i<SIZE; i++) {
 			for(int j=0; j<SIZE; j++) {
-				this.map[i][j] = new JButton();
+				this.map[i][j] = new JButton();// 인스턴스만 존재 집터만 만들어둔 상태 
 			
-				this.map[i][j].setBounds(x, y, 100, 100);
-				this.map[i][j].setText(this.front[i][j]+"");
+				this.map[i][j].setBounds(x, y, 100, 100); //집크기 위치 선정 
+				this.map[i][j].setText(this.front[i][j]+""); //간판 
 				this.map[i][j].setFont(new Font("THEJung170",Font.PLAIN,20));
 				
 				
 				this.map[i][j].setOpaque(true);
 				this.map[i][j].setBorderPainted(false);
+				
 				this.map[i][j].setBackground(Color.ORANGE);
-				this.map[i][j].addActionListener(this);
+				this.map[i][j].addActionListener(this); //기능, 초인종을 달았다!
 			
 				add(this.map[i][j]);
 			

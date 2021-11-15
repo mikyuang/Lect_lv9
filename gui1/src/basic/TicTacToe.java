@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 
@@ -46,7 +47,7 @@ class ResultFrame extends JFrame{
 
 
 
-class TicGamee extends JPanel implements AncestorListener, ActionListener{
+class TicGamee extends JPanel implements ActionListener, AncestorListener{
 	
 	
 	private JButton[] map = new JButton[9];
@@ -71,7 +72,7 @@ class TicGamee extends JPanel implements AncestorListener, ActionListener{
 	
 	private void setTitle() {
 		this.title.setBounds(0,0,MyFramee.SIZE,150);
-		this.title.setFont(Font.BOLD,40);
+	//	this.title.setFont(Font.BOLD,40);
 		this.title.setHorizontalAlignment(JLabel.CENTER);
 		this.title.setVerticalAlignment(JLabel.BOTTOM);
 		
@@ -209,6 +210,26 @@ class TicGamee extends JPanel implements AncestorListener, ActionListener{
 			}
 			return 0;
 		}
+
+		@Override
+		public void ancestorAdded(AncestorEvent event) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void ancestorRemoved(AncestorEvent event) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void ancestorMoved(AncestorEvent event) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	
 		
 	
 	

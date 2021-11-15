@@ -65,11 +65,10 @@ class Time extends JFrame implements Runnable{
 }
 
 
-
-
-
 class OneGame extends JPanel implements ActionListener{
 	Font font = new Font("",Font.BOLD, 25);
+	
+	boolean Time = false;
 	
 	private JButton[][] map;
 	private int front[][];
@@ -85,9 +84,12 @@ class OneGame extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		bt = new JButton();
+		bt.setBounds(0,0,800,800);
 		bt.setBackground(Color.pink);
-		bt.setBounds(100,600,300,100);
+		bt.setOpaque(true);
+		bt.setBorderPainted(false);
 		
+		bt.addActionListener(this);
 		add(bt);
 		
 		map = new JButton[5][5];
@@ -154,6 +156,8 @@ class OneGame extends JPanel implements ActionListener{
 		for(int i=0; i<5; i++) {
 			for(int j=0; j<5; j++) {
 				if(e.getSource()==this.map[i][j]) {//버튼 눌렀을때(타이머)
+					Time = true;
+					
 					if(map[i][j].getText().equals(num+"")) {
 					if(num < 26) {
 						map[i][j].setText(back[i][j]+"");
@@ -163,8 +167,9 @@ class OneGame extends JPanel implements ActionListener{
 						map[i][j].setText("X");
 						num +=1;
 						}
-					}if(num >50) {
+					}if(num > 50) {
 						bt.setText("GAME CLEAR!");
+						Time = false;
 					}else {
 						bt.setText("next num: "+num);
 					}
@@ -178,28 +183,27 @@ class OneGame extends JPanel implements ActionListener{
 
 class Myone extends JFrame{
 	
-	private static Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
-	public static int width = dm.width;
-	public static int height = dm.height;
+//	private static Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
+//	public static int width = dm.width;
+//	public static int height = dm.height;
+//	
+//	public static final int SIZE = 800;
 	
-	public static final int SIZE = 800;
+	public OneGame Panel = new OneGame();
 	
 	public Myone(){
 		
-		setLayout(null);
+		setLayout(null);//레이아웃이 디폴트로 되지않도록 풀어진다.
 		setTitle("1 to 50");
 		
-		setBounds(width/2-SIZE/2, height/2-SIZE/2, SIZE, SIZE);
+		setBounds(100,100,800,800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		add(new OneGame());
+		add(Panel);
 		
 		setVisible(true);
-		revalidate();
-		
+		revalidate();//프레임위에서 변화하고있는 프레임인지
 	}
-	
-	
 }
 
 

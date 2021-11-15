@@ -44,7 +44,7 @@ class PlayMusic implements Runnable{//start 다른 버전.
 		
 		while(play) {
 			System.out.println("음악이 흐르고..");
-			toolkit.music();
+//			toolkit.music();
 			try{
 				Thread.sleep(100);
 			}catch(Exception e) {

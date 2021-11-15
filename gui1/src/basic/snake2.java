@@ -45,6 +45,7 @@ class SnakeGame2 extends JPanel implements ActionListener, KeyListener, MouseLis
 		setLayout(null);
 		setBounds(0, 0, 700, 500);
 		setBackground(Color.white);
+
 		setMap();
 		setSnake();
 		setItems();
@@ -367,9 +368,6 @@ public class snake2 extends JFrame{
 		 add(new SnakeGame2());
 		setVisible(true);
 		revalidate();
-		 
-		 
-		 
 	 }
 	
 	
