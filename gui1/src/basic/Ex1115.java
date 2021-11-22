@@ -49,13 +49,13 @@ class Mon extends JFrame{
 		revalidate();
 	}
 
-	private void setImageLabal() {
-		
-		this.image = new JLabel(icon);
-		this.image.setBounds(0, 0, 700, 500);
-		add(this.image);
-	}
-	
+//	private void setImageLabal() {
+//		
+//		this.image = new JLabel(icon);
+//		this.image.setBounds(0, 0, 700, 500);
+//		add(this.image);
+//	}
+//	
 }
 
 public class Ex1115 {

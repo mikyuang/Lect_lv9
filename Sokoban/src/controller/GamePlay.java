@@ -140,7 +140,7 @@ public class GamePlay extends MyUtill{
 
 	private void setBallCnt() {
 		// TODO Auto-generated method stub
-		ballCnt = Integer.parseInt(JOptionPane.showInputDialog("박스의 수를 입력해주세요"));
+		ballCnt = Integer.parseInt(JOptionPane.showInputDialog("박스의 수를 입력"));
 	}
 
 	private void setMap() {
