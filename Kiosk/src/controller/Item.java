@@ -1,4 +1,4 @@
-package models;
+package controller;
 
 import java.awt.Image;
 
@@ -15,6 +15,10 @@ public class Item {
 	
 	private int x,y,w,h;
 	
+	private int category;
+	
+	private int state;
+	
 	private int price;
 	
 	private int num;
@@ -28,16 +32,17 @@ public class Item {
 	
 	private String Name;
 	
-	public Item(int num, int x, int y, int w, int h) {
+	public Item(int category,int num, int w, int h) {
+		this.category=category;
 		this.num=num;
-		this.x=x;
-		this.y=y;
 		this.w=w;
 		this.h=h;
-		if (this.meunNum == Coffee) {
-			this.fileName = String.format("images/coffee0%d.png", null);
-		}if(this.meunNum == Tea) {
-			this.fileName = String.format("images/tea0%d.png", null);
+		if (num< 10) {
+			this.fileName = String.format("images/%s0%d.png", this.category == 1 ? "coffee_sub" : "tea_sub",
+					this.num);
+		}else {
+			this.fileName = String.format("images/%s%d.png", this.category == 1 ? "coffee_sub" : "tea_sub",
+					this.num);
 		}
 		Image temp = new ImageIcon(fileName).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
 		this.image = new ImageIcon(temp);
