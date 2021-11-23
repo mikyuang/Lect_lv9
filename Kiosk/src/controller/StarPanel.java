@@ -3,10 +3,9 @@ package controller;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.util.Vector;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import models.Util;
 
@@ -14,12 +13,17 @@ import models.Util;
 
 public class StarPanel extends Util{
 
+	//public static Vector<Vector<String>> chiceMeun = new Vector<>();
+	
 	private JButton cobnt = new JButton();
 	private JButton tebnt = new JButton();
+	
 	private JButton Oderbnt = new JButton("결재");
 	private JButton cancelbnt = new JButton("취소");
 	
-	CoffeeFrame cf =null;
+	
+	
+	CoffeePanel cp = null;
 	
 	//rgb(11, 70, 25)찐초   //rgb(232, 232, 204)베이지  rgb(255, 204, 29)//찐노
 	public StarPanel(){
@@ -31,21 +35,17 @@ public class StarPanel extends Util{
 		setbtn();
 		setTable();
 		
-
-		
 	}
 	private void setbtn() {
-		this.tebnt.setBounds(280, 400, 100, 100);
-		this.cobnt.setBounds(130, 400, 100, 100);
+		
+		this.tebnt.setBounds(280, 400, 130, 100);
+		this.cobnt.setBounds(130, 400, 130, 100);
 		
 		this.tebnt.setFont(new Font("",Font.BOLD, 20));
 		this.cobnt.setFont(new Font("",Font.BOLD, 20));
 		
 		this.tebnt.setText("TEA");
 		this.cobnt.setText("COFFEE");
-		
-	
-		
 		
 		this.tebnt.addActionListener(this);
 		this.cobnt.addActionListener(this);
@@ -66,7 +66,7 @@ public class StarPanel extends Util{
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
 		if(e.getSource() == this.cobnt) {
-			this.cf = new CoffeeFrame();
+			
 			
 		}
 		if(e.getSource() == this.tebnt) {
