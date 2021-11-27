@@ -15,7 +15,6 @@ public class Item {
 	
 	private int x,y,w,h;
 	
-	private int category;
 	
 	private int state;
 	
@@ -32,20 +31,13 @@ public class Item {
 	
 	private String Name;
 	
-	public Item(int category,int num, int w, int h) {
-		this.category=category;
+	public Item(int meunNum, int num, int x, int y, int w, int h) {
+		this.meunNum=meunNum;
 		this.num=num;
+		this.x=x;
+		this.y=y;
 		this.w=w;
 		this.h=h;
-		if (num< 10) {
-			this.fileName = String.format("images/%s0%d.png", this.category == 1 ? "coffee_sub" : "tea_sub",
-					this.num);
-		}else {
-			this.fileName = String.format("images/%s%d.png", this.category == 1 ? "coffee_sub" : "tea_sub",
-					this.num);
-		}
-		Image temp = new ImageIcon(fileName).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
-		this.image = new ImageIcon(temp);
 		
 	}
 
@@ -173,7 +165,6 @@ public class Item {
 
 
 	public String getName() {
-		
 		if(this.meunNum == Coffee) {
 			if(num == 1) {this.Name = "아메리카노";}
 			else if(num==2) {this.Name = "스폐셜 아메리카노";}

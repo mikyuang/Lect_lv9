@@ -2,28 +2,47 @@ package controller;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
-import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
-import models.Util;
 
-
-
-public class StarPanel extends Util{
+public class StarPanel extends Util implements AncestorListener{
 
 	//public static Vector<Vector<String>> chiceMeun = new Vector<>();
 	
 	private JButton cobnt = new JButton();
 	private JButton tebnt = new JButton();
 	
-	private JButton Oderbnt = new JButton("결재");
+	//포장,매장
+	ImageIcon himage = new ImageIcon( new ImageIcon("image/inDrik.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+	ImageIcon outmage = new ImageIcon( new ImageIcon("image/takeout.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+	private JButton outbtn = new JButton(outmage);
+	private JButton herebtn = new JButton(himage);
+		
+	//결재,취소버튼 
+	private JButton paybnt = new JButton("결재");
 	private JButton cancelbnt = new JButton("취소");
+		
+	//현금,카드 
+	private JButton cashbtn = new JButton();
+	private JButton cardbtn = new JButton();
+		
+	//주문버튼
+	private JButton Oderbnt = new JButton("주문하기");
+	private JButton backbnt = new JButton("이전");
 	
+	TeaPanel tp = new TeaPanel();
+	CoffeePanel cp = new CoffeePanel();
+	CartItem cart = new CartItem();
+	TablePanel tbp = new TablePanel();
 	
+	public static int total;
 	
-	CoffeePanel cp = null;
 	
 	//rgb(11, 70, 25)찐초   //rgb(232, 232, 204)베이지  rgb(255, 204, 29)//찐노
 	public StarPanel(){
@@ -32,14 +51,22 @@ public class StarPanel extends Util{
 		setBounds(0, 0, 500, 800);
 		setBackground(new Color(17, 101, 48));
 		
-		setbtn();
-		setTable();
+		setbackbnt();
+		setCTbtn();
 		
 	}
-	private void setbtn() {
+	
+	private void setbackbnt() {
+		this.backbnt.setBounds(400, 700, 50, 50);
+		this.backbnt.setFont(new Font("맑은고딕",Font.PLAIN,10));
+		this.backbnt.setBorderPainted(false);
+		this.backbnt.addAncestorListener(this);
+	}
+
+	private void setCTbtn() {
 		
-		this.tebnt.setBounds(280, 400, 130, 100);
-		this.cobnt.setBounds(130, 400, 130, 100);
+		this.tebnt.setBounds(280, 300, 130, 100);
+		this.cobnt.setBounds(100, 300, 130, 100);
 		
 		this.tebnt.setFont(new Font("",Font.BOLD, 20));
 		this.cobnt.setFont(new Font("",Font.BOLD, 20));
@@ -55,27 +82,61 @@ public class StarPanel extends Util{
 		
 	}
 	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == this.cobnt ) {
+			CoffeePanel cp = new CoffeePanel();
+			this.removeAll();
+			this.repaint();
+			this.revalidate();
+			this.add(cp);
+			this.repaint();
+			this.revalidate();
+			
+		}
+		if(e.getSource() == this.tebnt) {
+			TeaPanel tp = new TeaPanel();
+			this.removeAll();
+			this.repaint();
+			this.revalidate();
+			this.add(tp);
+			this.repaint();
+			this.revalidate();
+			
+		}
+		if(e.getSource() == this.backbnt) {
+			StarPanel sp = new StarPanel();
+			this.removeAll();
+			this.repaint();
+			this.revalidate();
+			this.add(sp);
+			this.repaint();
+			this.revalidate();
+			
+		}
+		
+	}
 
-	private void setTable() {
+	@Override
+	public void ancestorAdded(AncestorEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		super.actionPerformed(e);
-		if(e.getSource() == this.cobnt) {
-			
-			
-		}
-		if(e.getSource() == this.tebnt) {
-			//this.mf = new MeunFrame();
-		}
+	public void ancestorRemoved(AncestorEvent event) {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	@Override
+	public void ancestorMoved(AncestorEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 	
