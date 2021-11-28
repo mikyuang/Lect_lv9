@@ -13,10 +13,6 @@ import javax.swing.JFrame;
 
 class StarFrame extends JFrame {
 	
-	public static Vector<Vector<String>> choiceMeun = new Vector<>();
-	
-	
-
 	
 	public StarFrame(){
 		

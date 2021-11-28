@@ -25,7 +25,7 @@ public class TablePanel extends Util{
 		this.colName.add("가격");
 		this.colName.add("개수");
 
-		this.table = new JTable(StarFrame.choiceMeun, colName);
+		this.table = new JTable(StarPanel.choiceMeun, colName);
 		this.table.setBounds(0, 0, 500, 120);
 		this.table.setVisible(true);
 		add(this.table);
